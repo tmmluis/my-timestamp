@@ -5,6 +5,9 @@ var app = express();
 
 var timestamp = require('./timestamp.js');
 
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
 app.get('/:date', function (req, res) {
   var dateString = req.params.date;
 
@@ -13,6 +16,6 @@ app.get('/:date', function (req, res) {
   }
 });
 
-app.listen(3000, function () {
-  console.log('listening on port 3000!');
+app.listen(port, function () {
+  console.log('listening on port ' + port + '!');
 });
