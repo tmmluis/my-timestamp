@@ -7,10 +7,12 @@ exports.getTimestamp = (input) => {
   var locale = "en-US";
   var options = {month: 'long', day: 'numeric', year: 'numeric'};
 
+  console.log("timestamp - received a string: " + input);
+
   // is the input an integer?
   if( !isNaN(input) ) {
     var unixTime = Number.parseInt(input, 10);
-    var date = new Date(timestamp.unix * 1000);
+    var date = new Date(unixTime * 1000);
     var naturalTime = date.toLocaleDateString(locale, options);
 
     return JSON.stringify({
